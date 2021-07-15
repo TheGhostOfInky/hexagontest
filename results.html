@@ -1,7 +1,7 @@
 <head>
 <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:400,700" rel="stylesheet">
 <link href='style.css' rel='stylesheet' type='text/css'>
-<title>DozenValues Results</title>
+<title>Hex Results</title>
 <link rel="icon" type="x-icon" href="icon.png">
 <link rel="shortcut icon" type="x-icon" href="icon.png">
 <meta charset="utf-8">
@@ -14,47 +14,47 @@
 </script>
 
 <body>
-<img src="dozenvalues.png" class="center"></img>
+<img src="hex.png" class="center"></img>
 <hr>
 
 <h1>Results</h1>
 
-<h2>Ownership Axis : <span class="weight-300" id="b1"></span></h2>
+<h2>Hierarchy : <span class="weight-300" id="b1"></span></h2>
 <div class="axis">
     <img id="img-v1" src="value_images/v1.png" height="128pt"/>
     <div class="bar v1" id="bar-v1"><div class="text-wrapper" id="v1"></div></div>
     <div class="bar v2" id="bar-v2"><div class="text-wrapper" id="v2"></div></div>
     <img id="img-v2" src="value_images/v2.png" height="128pt"/>
 </div>
-<h2>Market Axis : <span class="weight-300" id="b2"></span></h2>
+<h2>Property : <span class="weight-300" id="b2"></span></h2>
 <div class="axis">
     <img id="img-v3" src="value_images/v3.png" height="128pt"/>
     <div class="bar v3" id="bar-v3"><div class="text-wrapper" id="v3"></div></div>
     <div class="bar v4" id="bar-v4"><div class="text-wrapper" id="v4"></div></div>
     <img id="img-v4" src="value_images/v4.png" height="128pt"/>
 </div>
-<h2>Power Axis : <span class="weight-300" id="b3"></span></h2>
+<h2>Autonomy : <span class="weight-300" id="b3"></span></h2>
 <div class="axis">
     <img id="img-v5" src="value_images/v5.png" height="128pt"/>
     <div class="bar v5" id="bar-v5"><div class="text-wrapper" id="v5"></div></div>
     <div class="bar v6" id="bar-v6"><div class="text-wrapper" id="v6"></div></div>
     <img id="img-v6" src="value_images/v6.png" height="128pt"/>
 </div>
-<h2>Autonomy Axis : <span class="weight-300" id="b4"></span></h2>
+<h2>Horizontality : <span class="weight-300" id="b4"></span></h2>
 <div class="axis">
     <img id="img-v7" src="value_images/v7.png" height="128pt"/>
     <div class="bar v7" id="bar-v7"><div class="text-wrapper" id="v7"></div></div>
     <div class="bar v8" id="bar-v8"><div class="text-wrapper" id="v8"></div></div>
     <img id="img-v8" src="value_images/v8.png" height="128pt"/>
 </div>
-<h2>Identity Axis : <span class="weight-300" id="b5"></span></h2>
+<h2>Equality : <span class="weight-300" id="b5"></span></h2>
 <div class="axis">
     <img id="img-v9" src="value_images/v9.png" height="128pt"/>
     <div class="bar v9" id="bar-v9"><div class="text-wrapper" id="v9"></div></div>
     <div class="bar v10" id="bar-v10"><div class="text-wrapper" id="v10"></div></div>
     <img id="img-v10" src="value_images/v10.png" height="128pt"/>
 </div>
-<h2>Progress Axis : <span class="weight-300" id="b6"></span></h2>
+<h2>Command : <span class="weight-300" id="b6"></span></h2>
 <div class="axis">
     <img id="img-v11" src="value_images/v11.png" height="128pt"/>
     <div class="bar v11" id="bar-v11"><div class="text-wrapper" id="v11"></div></div>
@@ -89,12 +89,12 @@
         }
     }
 
-    b1Array = ["Communist","Socialist","Collective","Syncretic","Individual","Private","Propertarian"]
-    b2Array = ["Planned","Directed","Regulated","Intervening","Permissive","Free Market","Laissez Faire "]
-    b3Array = ["Autocratic","Concentrated","Unified","Representative","Dispersed","Decentral","Anarchist"]
-    b4Array = ["Emancipatory","Tolerant","Lenient","Limiting","Restrictive","Controlling","Brutal"]
-    b5Array = ["Intersectional","Inclusive","Respectful","Normative","Prejudicial","Discriminatory","Supremacist"]
-    b6Array = ["Antiquated","Traditional","Conservative","Conventional","Neoteric","Progressive","Futuristic"]
+    b1Array = ["","","","","","",""]
+    b2Array = ["","","","","","",""]
+    b3Array = ["","","","","","",""]
+    b4Array = ["","","","","","",""]
+    b5Array = ["","","","","","",""]
+    b6Array = ["","","","","","",""]
 
     function setLabel(val,ary) {
         if (val > 100) { return "" } else
