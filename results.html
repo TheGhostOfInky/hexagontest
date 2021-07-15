@@ -22,32 +22,26 @@
 <h2>Hierarchy : <span class="weight-300" id="b1"></span></h2>
 <div class="axis">
     <div class="bar v1" id="bar-v1"><div class="text-wrapper" id="v1"></div></div>
-    <div class="bar v2" id="bar-v2"><div class="text-wrapper" id="v2"></div></div>
 </div>
 <h2>Property : <span class="weight-300" id="b2"></span></h2>
 <div class="axis">
     <div class="bar v3" id="bar-v3"><div class="text-wrapper" id="v3"></div></div>
-    <div class="bar v4" id="bar-v4"><div class="text-wrapper" id="v4"></div></div>
 </div>
 <h2>Autonomy : <span class="weight-300" id="b3"></span></h2>
 <div class="axis">
     <div class="bar v5" id="bar-v5"><div class="text-wrapper" id="v5"></div></div>
-    <div class="bar v6" id="bar-v6"><div class="text-wrapper" id="v6"></div></div>
 </div>
 <h2>Horizontality : <span class="weight-300" id="b4"></span></h2>
 <div class="axis">
     <div class="bar v7" id="bar-v7"><div class="text-wrapper" id="v7"></div></div>
-    <div class="bar v8" id="bar-v8"><div class="text-wrapper" id="v8"></div></div>
 </div>
 <h2>Equality : <span class="weight-300" id="b5"></span></h2>
 <div class="axis">
     <div class="bar v9" id="bar-v9"><div class="text-wrapper" id="v9"></div></div>
-    <div class="bar v10" id="bar-v10"><div class="text-wrapper" id="v10"></div></div>
 </div>
 <h2>Command : <span class="weight-300" id="b6"></span></h2>
 <div class="axis">
     <div class="bar v11" id="bar-v11"><div class="text-wrapper" id="v11"></div></div>
-    <div class="bar v12" id="bar-v12"><div class="text-wrapper" id="v12"></div></div>
 </div>
 <h2>Closest Match : <span class="weight-300" id="ideology-label"></span></h2>
 <p></p>
@@ -83,12 +77,6 @@
     v7 = getQueryVariable("v7")
     v9 = getQueryVariable("v9")
     v11 = getQueryVariable("v11")
-    v2 = (100 - v1).toFixed(1)
-    v4 = (100 - v3).toFixed(1)
-    v6 = (100 - v5).toFixed(1)
-    v8 = (100 - v7).toFixed(1)
-    v10 = (100 - v9).toFixed(1)
-    v12 = (100 - v11).toFixed(1)
 
     setBarValue("v1", v1)
     setBarValue("v2", v2)
@@ -96,12 +84,6 @@
     setBarValue("v4", v4)
     setBarValue("v5", v5)
     setBarValue("v6", v6)
-    setBarValue("v7", v7)
-    setBarValue("v8", v8)
-    setBarValue("v9", v9)
-    setBarValue("v10", v10)
-    setBarValue("v11", v11)
-    setBarValue("v12", v12)
 
     ideology = ""
     ideodist = Infinity
@@ -148,13 +130,6 @@
         if (v7 >= 25) {ctx.fillText(v7 + "%", 130, 592.5)}
         if (v9 >= 25) {ctx.fillText(v9 + "%", 130, 712.5)}
         if (v11 >= 25) {ctx.fillText(v11 + "%", 130, 832.5)}
-        ctx.textAlign="right"
-        if (v2 >= 25) {ctx.fillText(v2 + "%", 670, 232.5)}
-        if (v4 >= 25) {ctx.fillText(v4 + "%", 670, 352.5)}
-        if (v6 >= 25) {ctx.fillText(v6 + "%", 670, 472.5)}
-        if (v8 >= 25) {ctx.fillText(v8 + "%", 670, 592.5)}
-        if (v10 >= 25) {ctx.fillText(v10 + "%", 670, 712.5)}
-        if (v12 >= 25) {ctx.fillText(v12 + "%", 670, 832.5)}
 
         ctx.font="300 30px Montserrat"
 	ctx.fillText("Made by Solar#5896", 780, 80)
