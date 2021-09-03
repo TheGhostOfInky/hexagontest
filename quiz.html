@@ -30,20 +30,20 @@
 <button class="small_button_off" id="back_button_off">Back</button><br>
 
 <script>
-    var max_b1, max_b2, max_b3, max_b4, max_b5, max_b6; // Max possible scores
-    max_b1 = max_b2 = max_b3 = max_b4 = max_b5 = max_b6 = 0;
-    var b1, b2, b3, b4, b5, b6; // User's scores
-    b1 = b2 = b3 = b4 = b5 = b6 = 0;
+    var max_hierarchy, max_property, max_autonomy, max_horizontality, max_equality, max_command; // Max possible scores
+    max_hierarchy = max_property = max_autonomy = max_horizontality = max_equality = max_command = 0;
+    var hierarchy, property, autonomy, horizontality, equality, command; // User's scores
+    hierarchy = property = autonomy = horizontality = equality = command = 0;
     var qn = 0; // Question number
     var prev_answer = null;
     init_question();
     for (var i = 0; i < questions.length; i++) {
-        max_b1 += Math.abs(questions[i].effect.b1)
-        max_b2 += Math.abs(questions[i].effect.b2)
-        max_b3 += Math.abs(questions[i].effect.b3)
-        max_b4 += Math.abs(questions[i].effect.b4)
-        max_b5 += Math.abs(questions[i].effect.b5)
-        max_b6 += Math.abs(questions[i].effect.b6)
+        max_hierarchy += Math.abs(questions[i].effect.hierarchy)
+        max_property += Math.abs(questions[i].effect.property)
+        max_autonomy += Math.abs(questions[i].effect.autonomy)
+        max_horizontality += Math.abs(questions[i].effect.horizontality)
+        max_equality += Math.abs(questions[i].effect.equality)
+        max_command += Math.abs(questions[i].effect.command)
     }
     function init_question() {
         document.getElementById("question-text").innerHTML = questions[qn].question;
@@ -59,12 +59,12 @@
     }
 
     function next_question(mult) {
-        b1 += mult*questions[qn].effect.b1
-        b2 += mult*questions[qn].effect.b2
-        b3 += mult*questions[qn].effect.b3
-        b4 += mult*questions[qn].effect.b4
-        b5 += mult*questions[qn].effect.b5
-        b6 += mult*questions[qn].effect.b6
+        hierarchy += mult*questions[qn].effect.hierarchy
+        property += mult*questions[qn].effect.property
+        autonomy += mult*questions[qn].effect.autonomy
+        horizontality += mult*questions[qn].effect.horizontality
+        equality += mult*questions[qn].effect.equality
+        command += mult*questions[qn].effect.command
         qn++;
         prev_answer = mult;
         if (qn < questions.length) {
@@ -78,12 +78,12 @@
             return;
         }
         qn--;
-        b1 -= prev_answer * questions[qn].effect.b1;
-        b2 -= prev_answer * questions[qn].effect.b2;
-        b3 -= prev_answer * questions[qn].effect.b3;
-        b4 -= prev_answer * questions[qn].effect.b4;
-        b5 -= prev_answer * questions[qn].effect.b5;
-        b6 -= prev_answer * questions[qn].effect.b6;
+        hierarchy -= prev_answer * questions[qn].effect.hierarchy;
+        property -= prev_answer * questions[qn].effect.property;
+        autonomy -= prev_answer * questions[qn].effect.autonomy;
+        horizontality -= prev_answer * questions[qn].effect.horizontality;
+        equality -= prev_answer * questions[qn].effect.equality;
+        command -= prev_answer * questions[qn].effect.command;
         prev_answer = null;
         init_question();
 
@@ -93,12 +93,12 @@
     }
     function results() {
         location.href = `results.html`
-            + `?v1=${calc_score(b1,max_b1)}`
-            + `&v3=${calc_score(b2,max_b2)}`
-            + `&v5=${calc_score(b3,max_b3)}`
-            + `&v7=${calc_score(b4,max_b4)}`
-            + `&v9=${calc_score(b5,max_b5)}`
-            + `&v11=${calc_score(b6,max_b6)}`
+            + `?hierarchy=${calc_score(hierarchy,max_hierarchy)}`
+            + `&property=${calc_score(property,max_property)}`
+            + `&autonomy=${calc_score(autonomy,max_autonomy)}`
+            + `&horizontality=${calc_score(horizontality,max_horizontality)}`
+            + `&equality=${calc_score(equality,max_equality)}`
+            + `&command=${calc_score(command,max_command)}`
     }
 </script>
 </body>
