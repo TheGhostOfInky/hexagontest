@@ -30,10 +30,10 @@
 <button class="small_button_off" id="back_button_off">Back</button><br>
 
 <script>
-    var max_hierarchy, max_property, max_autonomy, max_horizontality, max_equality, max_command; // Max possible scores
-    max_hierarchy = max_property = max_autonomy = max_horizontality = max_equality = max_command = 0;
-    var hierarchy, property, autonomy, horizontality, equality, command; // User's scores
-    hierarchy = property = autonomy = horizontality = equality = command = 0;
+    var max_hierarchy, max_property, max_autonomy, max_horizontality, max_equality, max_command, max_a, max_b, max_c; // Max possible scores
+    max_hierarchy = max_property = max_autonomy = max_horizontality = max_equality = max_command = max_a = max_b = max_c = 0;
+    var hierarchy, property, autonomy, horizontality, equality, command, a, b, c; // User's scores
+    hierarchy = property = autonomy = horizontality = equality = command = a = b = c = 0;
     var qn = 0; // Question number
     var prev_answer = null;
     init_question();
@@ -44,6 +44,9 @@
         max_horizontality += Math.abs(questions[i].effect.horizontality)
         max_equality += Math.abs(questions[i].effect.equality)
         max_command += Math.abs(questions[i].effect.command)
+        max_a += Math.abs(questions[i].effect.a)
+        max_b += Math.abs(questions[i].effect.b)
+        max_c += Math.abs(questions[i].effect.c)
     }
     function init_question() {
         document.getElementById("question-text").innerHTML = questions[qn].question;
@@ -65,6 +68,9 @@
         horizontality += mult*questions[qn].effect.horizontality
         equality += mult*questions[qn].effect.equality
         command += mult*questions[qn].effect.command
+        a += mult*questions[qn].effect.a
+        b += mult*questions[qn].effect.b
+        c += mult*questions[qn].effect.c
         qn++;
         prev_answer = mult;
         if (qn < questions.length) {
@@ -84,6 +90,9 @@
         horizontality -= prev_answer * questions[qn].effect.horizontality;
         equality -= prev_answer * questions[qn].effect.equality;
         command -= prev_answer * questions[qn].effect.command;
+        a -= prev_answer * questions[qn].effect.a;
+        b -= prev_answer * questions[qn].effect.b;
+        c -= prev_answer * questions[qn].effect.c;
         prev_answer = null;
         init_question();
 
@@ -99,6 +108,9 @@
             + `&horizontality=${calc_score(horizontality,max_horizontality)}`
             + `&equality=${calc_score(equality,max_equality)}`
             + `&command=${calc_score(command,max_command)}`
+            + `&a=${calc_score(command,max_a)}`
+            + `&b=${calc_score(command,max_b)}`
+            + `&c=${calc_score(command,max_c)}`
     }
 </script>
 </body>
