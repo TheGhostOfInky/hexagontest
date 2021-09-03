@@ -1,140 +1,56 @@
 <head>
-<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:400,700" rel="stylesheet">
-<link href='style.css' rel='stylesheet' type='text/css'>
-<title>Hex Results</title>
-<link rel="icon" type="x-icon" href="icon.png">
-<link rel="shortcut icon" type="x-icon" href="icon.png">
-<meta charset="utf-8">
-<script>
-  version = ""
-</script>
-</head>
-<script type="application/javascript"
-        src="ideologies.js">
-</script>
-
-<body>
-<img src="hex.png" class="center"></img>
-<hr>
-
-<h1>Results</h1>
-
-<h2>Hierarchy : <span class="weight-300" id="b1"></span></h2>
-<div class="axis">
-    <div class="bar v1" id="bar-v1"><div class="text-wrapper" id="v1"></div></div>
-</div>
-<h2>Property : <span class="weight-300" id="b2"></span></h2>
-<div class="axis">
-    <div class="bar v3" id="bar-v3"><div class="text-wrapper" id="v3"></div></div>
-</div>
-<h2>Autonomy : <span class="weight-300" id="b3"></span></h2>
-<div class="axis">
-    <div class="bar v5" id="bar-v5"><div class="text-wrapper" id="v5"></div></div>
-</div>
-<h2>Horizontality : <span class="weight-300" id="b4"></span></h2>
-<div class="axis">
-    <div class="bar v7" id="bar-v7"><div class="text-wrapper" id="v7"></div></div>
-</div>
-<h2>Equality : <span class="weight-300" id="b5"></span></h2>
-<div class="axis">
-    <div class="bar v9" id="bar-v9"><div class="text-wrapper" id="v9"></div></div>
-</div>
-<h2>Command : <span class="weight-300" id="b6"></span></h2>
-<div class="axis">
-    <div class="bar v11" id="bar-v11"><div class="text-wrapper" id="v11"></div></div>
-</div>
-<h2>Closest Match : <span class="weight-300" id="ideology-label"></span></h2>
-<p></p>
-<p></p>
-<hr/>
-<img src="" id="banner">
-<button class="button" onclick="location.href='index.html';" style="background-color: #00a0e0;">Back</button> <br>
-<script>
-    function getQueryVariable(variable)
-    {
-           var query = window.location.search.substring(1)
-           var vars = query.split("&")
-           for (var i=0;i<vars.length;i++) {
-                   var pair = vars[i].split("=")
-                   if(pair[0] == variable) {return pair[1]}
-           }
-           return(NaN);
-    }
-
-    function setBarValue(name, value) {
-        innerel = document.getElementById(name)
-        outerel = document.getElementById("bar-" + name)
-        outerel.style.width = (value + "%")
-        innerel.innerHTML = (value + "%")
-        if (innerel.offsetWidth + 20 > outerel.offsetWidth) {
-            innerel.style.visibility = "hidden"
-        }
-    }
-
-    v1 = getQueryVariable("v1")
-    v3 = getQueryVariable("v3")
-    v5 = getQueryVariable("v5")
-    v7 = getQueryVariable("v7")
-    v9 = getQueryVariable("v9")
-    v11 = getQueryVariable("v11")
-
-    setBarValue("v1", v1)
-    setBarValue("v3", v3)
-    setBarValue("v5", v5)
-    setBarValue("v7", v7)
-    setBarValue("v9", v9)
-    setBarValue("v11", v11)
-
-    ideology = ""
-    ideodist = Infinity
-    for (var i = 0; i < ideologies.length; i++) {
-        dist = 0
-        dist += Math.abs(ideologies[i].stats.b1 - v1)
-        dist += Math.abs(ideologies[i].stats.b2 - v3)
-        dist += Math.abs(ideologies[i].stats.b3 - v5)
-        dist += Math.abs(ideologies[i].stats.b4 - v7)
-        dist += Math.abs(ideologies[i].stats.b5 - v9)
-        dist += Math.abs(ideologies[i].stats.b6 - v11)
-        if (dist < ideodist) {
-            ideology = ideologies[i].name
-        }
-    }
-    document.getElementById("ideology-label").innerHTML = ideology
-
-    function createImage(src, x, y, w, h) {
-        img = new Image ()
-        img.src = src
-        img.onLoad = function() {
-            ctx.drawImage(img, x, y, w, h)
-        }
-    }
-
-    window.onload = function() {
-        var c = document.createElement("canvas")
-        var ctx = c.getContext("2d")
-        c.width = 1000;
-        c.height = 1000;
-        ctx.fillStyle = "#c0c0c0"
-        ctx.fillRect(0,0,1000,1000);
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:400,700" rel="stylesheet">
+    <link href='style.css' rel='stylesheet' type='text/css'>
+    <title>Hex Results</title>
+    <link rel="icon" type="x-icon" href="icon.png">
+    <link rel="shortcut icon" type="x-icon" href="icon.png">
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    
+    <body>
+    <h1 class="title">Hex</h1>
+    <svg id="svgHeader" style="width: 100%;" viewBox="0 0 112 19">
+        <text x="50%" y="15" class="svgHeader">Hex</text>
+    </svg>
+    <hr>
+    
+	<h1 class="title">Results</h1>
+    <svg id="svgHeader" style="width: 100%;" viewBox="0 0 112 19">
+		<text x="50%" y="15" class="svgHeader">Results</text>
+	</svg>
+    
+    <img src="" id="banner"></canvas></br>
+    <p style="text-align:center;margin:-2px auto">Hint: you can download this image directly. No need to screenshot!</p></br>
+    <button class="button" onclick="location.href='index.html';" style="background-color: #0075ff;">Back</button> <br>
 	
-        ctx.font="700 50px Montserrat"
-        ctx.textAlign="left"
-        ctx.fillText("Hex", 20, 70)
-        ctx.font="30px Montserrat"
-        ctx.fillText(ideology, 20, 120)
-
-        ctx.textAlign="left"
-        if (v1 >= 25) {ctx.fillText(v1 + "%", 130, 232.5)}
-        if (v3 >= 25) {ctx.fillText(v3 + "%", 130, 352.5)}
-        if (v5 >= 25) {ctx.fillText(v5 + "%", 130, 472.5)}
-        if (v7 >= 25) {ctx.fillText(v7 + "%", 130, 592.5)}
-        if (v9 >= 25) {ctx.fillText(v9 + "%", 130, 712.5)}
-        if (v11 >= 25) {ctx.fillText(v11 + "%", 130, 832.5)}
-
-        ctx.font="300 30px Montserrat"
-	ctx.fillText("Made by Solar#5896", 780, 80)
-	
-        document.getElementById("banner").src = c.toDataURL();
-    }
-    </script>
-</body>
+    
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        x_axis  = parseFloat(urlParams.get("right"))
+        y_axis  = -parseFloat(urlParams.get("auth"))
+    
+        window.onload = function() {
+            var background = new Image();
+            background.onload = function() {
+                var c = document.createElement("canvas");
+                c.width = 750;
+                c.height = 750;
+                var ctx = c.getContext("2d");
+                ctx.fillStyle = "#ffffff"
+                ctx.fillRect(0, 0, 750, 750);
+                ctx.drawImage(background, 0, 0);
+    
+                var dot = c.getContext("2d");
+                dot.beginPath();
+                dot.arc(65+(750 * (619/750)*(x_axis + 10)/20), 65+(750 * (619/750)*(y_axis + 10)/20), 10, 0, 2 * Math.PI);
+                dot.fillStyle = 'red';
+                dot.fill();
+                dot.stroke();
+    
+                document.getElementById("banner").src = c.toDataURL();
+            }
+            background.src = "./hex.png";
+        }
+        </script>
+    </body>
