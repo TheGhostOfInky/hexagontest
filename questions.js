@@ -8,6 +8,9 @@ questions = [
             "horizontality": 0,
             "equality": 0,
             "command": 0,
+            "a": 0,
+            "b": 0,
+            "c": 0,
         }
     },
     {
@@ -19,6 +22,9 @@ questions = [
             "horizontality": 0,
             "equality": 0,
             "command": 0,
+            "a": 0,
+            "b": 0,
+            "c": 0,
         }
     },
     {
@@ -30,6 +36,9 @@ questions = [
             "horizontality": 0,
             "equality": 0,
             "command": 0,
+            "a": 0,
+            "b": 0,
+            "c": 0,
         }
     },
     {
@@ -41,6 +50,9 @@ questions = [
             "horizontality": 0,
             "equality": 0,
             "command": 0,
+            "a": 0,
+            "b": 0,
+            "c": 0,
         }
     },
     {
@@ -52,6 +64,9 @@ questions = [
             "horizontality": 0,
             "equality": 0,
             "command": 0,
+            "a": 0,
+            "b": 0,
+            "c": 0,
         }
     },
     {
@@ -63,6 +78,9 @@ questions = [
             "horizontality": 0,
             "equality": 0,
             "command": 0,
+            "a": 0,
+            "b": 0,
+            "c": 0,
         }
     },
     {
@@ -74,6 +92,9 @@ questions = [
             "horizontality": 1,
             "equality": 0,
             "command": 0,
+            "a": 0,
+            "b": 0,
+            "c": 0,
         }
     },
     {
@@ -85,6 +106,9 @@ questions = [
             "horizontality": -1,
             "equality": 0,
             "command": 0,
+            "a": 0,
+            "b": 0,
+            "c": 0,
         }
     },
     {
@@ -96,6 +120,9 @@ questions = [
             "horizontality": 0,
             "equality": 1,
             "command": 0,
+            "a": 0,
+            "b": 0,
+            "c": 0,
         }
     },
     {
@@ -107,6 +134,9 @@ questions = [
             "horizontality": 0,
             "equality": -1,
             "command": 0,
+            "a": 0,
+            "b": 0,
+            "c": 0,
         }
     },
     {
@@ -118,6 +148,9 @@ questions = [
             "horizontality": 0,
             "equality": 0,
             "command": 1,
+            "a": 0,
+            "b": 0,
+            "c": 0,
         }
     },
     {
@@ -129,28 +162,37 @@ questions = [
             "horizontality": 0,
             "equality": 0,
             "command": -1,
+            "a": 0,
+            "b": 0,
+            "c": 0,
         }
     },
     {
         "question": "Hierarchy will arise in any society.",
         "effect": {
-            "hierarchy": 1,
-            "property": 1,
+            "hierarchy": 0,
+            "property": 0,
             "autonomy": 0,
             "horizontality": 0,
             "equality": 0,
             "command": 0,
+            "a": 1,
+            "b": 0,
+            "c": 0,
         }
     },
     {
         "question": "Chasing equality will lead to authoritarianism.",
         "effect": {
             "hierarchy": 0,
-            "property": 1,
-            "autonomy": 1,
+            "property": 0,
+            "autonomy": 0,
             "horizontality": 0,
             "equality": 0,
             "command": 0,
+            "a": 0,
+            "b": 1,
+            "c": 0,
         }
     },
     {
@@ -158,10 +200,13 @@ questions = [
         "effect": {
             "hierarchy": 0,
             "property": 0,
-            "autonomy": 1,
-            "horizontality": 1,
+            "autonomy": 0,
+            "horizontality": 0,
             "equality": 0,
             "command": 0,
+            "a": 0,
+            "b": 0,
+            "c": 1,
         }
     },
     {
@@ -170,9 +215,12 @@ questions = [
             "hierarchy": 0,
             "property": 0,
             "autonomy": 0,
-            "horizontality": 1,
-            "equality": 1,
+            "horizontality": 0,
+            "equality": 0,
             "command": 0,
+            "a": -1,
+            "b": 0,
+            "c": 0,
         }
     },
     {
@@ -182,19 +230,25 @@ questions = [
             "property": 0,
             "autonomy": 0,
             "horizontality": 0,
-            "equality": 1,
-            "command": 1,
+            "equality": 0,
+            "command": 0,
+            "a": 0,
+            "b": -1,
+            "c": 0,
         }
     },
     {
         "question": "The economy must be top down to ensure efficiency.",
         "effect": {
-            "hierarchy": 1,
+            "hierarchy": 0,
             "property": 0,
             "autonomy": 0,
             "horizontality": 0,
             "equality": 0,
-            "command": 1,
+            "command": 0,
+            "a": 0,
+            "b": 0,
+            "c": -1,
         }
     }
 ]
