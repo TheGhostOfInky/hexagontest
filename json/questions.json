@@ -12,12 +12,12 @@
     {
         "q": "Direct democracy is good",
         "w": 1,
-        "a": "equa"
+        "a": "demo"
     },
     {
         "q": "Welfare makes people lazy",
         "w": -1,
-        "a": "equa"
+        "a": "demo"
     },
     {
         "q": "The state should enforce a class system",

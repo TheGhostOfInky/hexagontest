@@ -1,8 +1,8 @@
 type question = { q: string; w: number; a: string }
-type score = {auto: number; equa: number; hier: number; prop: number; hori: number; comm: number}
+type score = {auto: number; demo: number; hier: number; prop: number; hori: number; comm: number}
 var questions: Array<question>
-var max_score: score = {auto:0, equa:0, hier:0, prop:0, hori:0, comm:0}
-var user_score: score = {auto:0, equa:0, hier:0, prop:0, hori:0, comm:0}
+var max_score: score = {auto:0, demo:0, hier:0, prop:0, hori:0, comm:0}
+var user_score: score = {auto:0, demo:0, hier:0, prop:0, hori:0, comm:0}
 var questionId: question
 var qN: number = 0
 
@@ -11,13 +11,11 @@ function pQ(data){
     for(let i: number=0;i<questions.length;i++){
         max_score[questions[i].a] += Math.abs(questions[i].w)
     }
-    console.log(max_score)
     lQ()
 }
 
 function answer(val: number){
     user_score[questionId.a] += val * questionId.w
-    console.log(user_score)
     qN++
     if(qN<questions.length){
         lQ()
@@ -31,7 +29,7 @@ function calc(val: string){
 }
 
 function results(){
-    location.href = `results.html?auto=${calc("auto")}&equa=${calc("equa")}&hier=${calc("hier")}&prop=${calc("prop")}&hori=${calc("hori")}&comm=${calc("comm")}`
+    location.href = `results.html?auto=${calc("auto")}&demo=${calc("demo")}&hier=${calc("hier")}&prop=${calc("prop")}&hori=${calc("hori")}&comm=${calc("comm")}`
 }
 
 function lQ(){

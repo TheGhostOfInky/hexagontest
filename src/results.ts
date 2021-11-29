@@ -1,6 +1,8 @@
 type triangle = { x: number; y: number; z: number }
 var leftTr: triangle
 var rightTr: triangle
+let hexagon_img = new Image()
+hexagon_img.src = "assets/hexagon.svg"
 const canvas =<HTMLCanvasElement> document.getElementById("results")
 const ctx = canvas.getContext("2d")
 
@@ -13,62 +15,72 @@ function gqv(variable:string){
             return parseFloat(pair[1])
         }
     }
-    return(NaN);
+    return(0);
 }
 
 function cTriang(input:triangle){
     let sum: number = input.x + input.y + input.z
-    return {x: input.x / sum, y: input.y / sum, z: input.z / sum}
+    if(sum == 0) {
+        return {x: 1/3, y: 1/3, z: 1/3}
+    } else {
+        return {x: input.x / sum, y: input.y / sum, z: input.z / sum}
+    }
+    
 }
 
 
 function drawCanvas(lT:triangle,rT:triangle){
-    ctx.fillStyle = "#ddd"
-    ctx.fillRect(0,0,700,700)
+    ctx.fillStyle = "#eee"
+    ctx.fillRect(0,0,800,940)
+    let hexagon_img = new Image()
+    hexagon_img.src = "assets/hexagon.svg"
+    ctx.drawImage(hexagon_img,0,0)
 
-    ctx.beginPath()
-    ctx.strokeStyle = "#000"
-    ctx.lineWidth = 1
-    ctx.moveTo(195,83)
-    ctx.lineTo(195,617)
-    ctx.lineTo(655,350)
-    ctx.lineTo(195,83)
-    ctx.stroke()
-
-    ctx.beginPath()
-    ctx.strokeStyle = "#000"
-    ctx.lineWidth = 1
-    ctx.moveTo(503,83)
-    ctx.lineTo(503,617)
-    ctx.lineTo(43,350)
-    ctx.lineTo(503,83)
-    ctx.stroke()
-
-    let x1: number = lT.z //equa
+    let x1: number = lT.z //demo
     let y1: number = lT.x - lT.y //auto - hier
     let x2: number = rT.z //prop
-    let y2: number = rT.y - rT.x //comm - hori
+    let y2: number = rT.y - rT.x //hori - comm
 
-    console.log(x1,y1,x2,y2)
-
-    let X1: number = 508 - (x1 * 460)
-    let Y1: number = 345 + (y1 * 267)
-    let X2: number = 190 + (x2 * 460)
-    let Y2: number = 345 + (y2 * 267)
-
-    console.log(X1,Y1,X2,Y2)
+    let X1: number = 553.768 - (x1 * 465.524)
+    let Y1: number = 395.860 + (y1 * 268.772)
+    let X2: number = 243.424 + (x2 * 465.524)
+    let Y2: number = 395.860 + (y2 * 268.772)
 
     let X: number = (X1 + X2) / 2
     let Y: number = (Y1 + Y2) / 2
+  
+    ctx.beginPath()
+    ctx.fillStyle = "#000"
+    ctx.arc(X, Y, 10, 0, 2 * Math.PI)
+    ctx.fill()
 
-    ctx.fillStyle = "#0082a4"
-    ctx.fillRect(X,Y,10,10)
+    ctx.beginPath()
+    ctx.fillStyle = "#f00"
+    ctx.arc(X, Y, 8, 0, 2 * Math.PI)
+    ctx.fill()
 
+    ctx.textAlign = "left"
+    ctx.font = "35px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+    ctx.fillStyle = "#93952f"
+    ctx.fillText("Autonomy: "  + ((lT.x * 100).toFixed(2)) + "%",40,820)
+    ctx.fillStyle = "#ff2923"
+    ctx.fillText("Democracy: " + ((lT.z * 100).toFixed(2)) + "%",40,860)
+    ctx.fillStyle = "#4f2578"
+    ctx.fillText("Hierarchy: " + ((lT.y * 100).toFixed(2)) + "%",40,900)
+
+    ctx.textAlign = "right"
+    ctx.fillStyle = "#22546a"
+    ctx.fillText("Property: "      + ((rT.z * 100).toFixed(2)) + "%",760,820)
+    ctx.fillStyle = "#ff6400"
+    ctx.fillText("Horizontality: " + ((rT.y * 100).toFixed(2)) + "%",760,860)
+    ctx.fillStyle = "#c10061"
+    ctx.fillText("Command: "       + ((rT.x * 100).toFixed(2)) + "%",760,900)
+     
 }
 
-leftTr = cTriang({x: gqv("auto"), y: gqv("hier"), z: gqv("equa")})
+leftTr = cTriang({x: gqv("auto"), y: gqv("hier"), z: gqv("demo")})
 rightTr = cTriang({x: gqv("comm"), y: gqv("hori"), z: gqv("prop")})
 
-console.log(leftTr,rightTr)
-
-drawCanvas(leftTr,rightTr)
+window.onload = function(){
+    drawCanvas(leftTr,rightTr)
+} 
