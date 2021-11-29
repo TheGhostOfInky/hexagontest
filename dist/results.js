@@ -39,7 +39,7 @@ function drawCanvas(lT, rT) {
     var x1 = lT.z; //equa
     var y1 = lT.x - lT.y; //auto - hier
     var x2 = rT.z; //prop
-    var y2 = rT.x - rT.y; //comm - hori
+    var y2 = rT.y - rT.x; //comm - hori
     console.log(x1, y1, x2, y2);
     var X1 = 508 - (x1 * 460);
     var Y1 = 345 + (y1 * 267);
