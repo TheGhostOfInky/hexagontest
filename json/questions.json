@@ -1,0 +1,62 @@
+[
+    {
+        "q": "A market economy is desirable",
+        "w": 1,
+        "a": "auto"
+    },
+    {
+        "q": "Markets require regulation",
+        "w": -1,
+        "a": "auto"
+    },
+    {
+        "q": "Direct democracy is good",
+        "w": 1,
+        "a": "equa"
+    },
+    {
+        "q": "Welfare makes people lazy",
+        "w": -1,
+        "a": "equa"
+    },
+    {
+        "q": "The state should enforce a class system",
+        "w": 1,
+        "a": "hier"
+    },
+    {
+        "q": "Elites should have less power over the lives of everyday people",
+        "w": -1,
+        "a": "hier"
+    },
+    {
+        "q": "Property should be the basis for our society",
+        "w": 1,
+        "a": "prop"
+    },
+    {
+        "q": "Private property should be abolished",
+        "w": -1,
+        "a": "prop"
+    },
+    {
+        "q": "Nobody should hold power over another individual",
+        "w": 1,
+        "a": "hori"
+    },
+    {
+        "q": "Hierarchy is sometimes necessary",
+        "w": -1,
+        "a": "hori"
+    },
+    {
+        "q": "All industry should be nationalised",
+        "w": 1,
+        "a": "comm"
+    },
+    {
+        "q": "The state should be less involved in the economy",
+        "w": -1,
+        "a": "comm"
+    }
+]
