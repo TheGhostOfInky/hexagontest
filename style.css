@@ -6,11 +6,28 @@ body {
     text-align: center;
 }
 
+h1 {
+    font-size: 5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+p {
+    font-size: 1.5em;
+}
+
+ul {
+    font-size: 1.5em;
+}
+
 #question {
     text-align: center;
     font-size: 2em;
     background-color: beige;
-    width: 60%;
+    width: 40%;
+    min-width: 100px;
     padding: 1em;
     margin: 1em auto;
     border-radius: 20px;
@@ -21,8 +38,8 @@ button{
     text-align: center;
     font-size: 1.5em;
     padding: 0.4em;
-    width: 30%;
-    margin: 0.2em auto;
+    width: 20%;
+    margin: 0.4em auto;
     background-color:dodgerblue;
     border-radius: 1em;
     border-style: none;
@@ -34,3 +51,54 @@ button{
     max-width: 80%;
     height: auto;
 }
+@media(prefers-color-scheme: dark){
+    body{
+        background-color: #222;
+        color: white;
+    }
+    #question {
+        background-color: #111;
+        color: white;
+    }
+}
+
+/*Github Corner*/
+.github-corner {
+    fill: #000;
+  }
+  .github-corner .octo-arm, .github-corner .octo-body {
+    fill: #fff;
+  }
+  
+  .github-corner:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
+  
+  @keyframes octocat-wave {
+    0%, 100% {
+      transform: rotate(0);
+    }
+    20%, 60% {
+      transform: rotate(-25deg);
+    }
+    40%, 80% {
+      transform: rotate(10deg);
+    }
+  }
+  @media (max-width: 800px) {
+    .github-corner:hover .octo-arm {
+      animation: none;
+    }
+  
+    .github-corner .octo-arm {
+      animation: octocat-wave 560ms ease-in-out;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    .github-corner {
+      fill: #fff;
+    }
+    .github-corner .octo-arm, .github-corner .octo-body {
+      fill: #000;
+    }
+  }

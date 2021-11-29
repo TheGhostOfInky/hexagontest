@@ -29,6 +29,7 @@ function results() {
 function lQ() {
     questionId = questions[qN];
     document.getElementById("question").innerHTML = questionId.q;
+    document.getElementById("questionNumber").innerHTML = "Question " + (qN + 1) + " of " + questions.length;
 }
 fetch("json/questions.json")
     .then(function (response) { return response.json(); })

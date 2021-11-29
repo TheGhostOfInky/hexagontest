@@ -1,9 +1,9 @@
+var canvas = document.getElementById("results");
+var ctx = canvas.getContext("2d");
 var leftTr;
 var rightTr;
 var hexagon_img = new Image();
 hexagon_img.src = "assets/hexagon.svg";
-var canvas = document.getElementById("results");
-var ctx = canvas.getContext("2d");
 function gqv(variable) {
     var query = window.location.search.substring(1);
     var vars = query.split("&");
@@ -13,7 +13,7 @@ function gqv(variable) {
             return parseFloat(pair[1]);
         }
     }
-    return (0);
+    return (NaN);
 }
 function cTriang(input) {
     var sum = input.x + input.y + input.z;
@@ -30,10 +30,10 @@ function drawCanvas(lT, rT) {
     var hexagon_img = new Image();
     hexagon_img.src = "assets/hexagon.svg";
     ctx.drawImage(hexagon_img, 0, 0);
-    var x1 = lT.z; //demo
-    var y1 = lT.x - lT.y; //auto - hier
-    var x2 = rT.z; //prop
-    var y2 = rT.y - rT.x; //hori - comm
+    var x1 = lT.y; //demo
+    var y1 = lT.x - lT.z; //auto - hier
+    var x2 = rT.x; //prop
+    var y2 = rT.y - rT.z; //hori - comm
     var X1 = 553.768 - (x1 * 465.524);
     var Y1 = 395.860 + (y1 * 268.772);
     var X2 = 243.424 + (x2 * 465.524);
@@ -53,19 +53,19 @@ function drawCanvas(lT, rT) {
     ctx.fillStyle = "#93952f";
     ctx.fillText("Autonomy: " + ((lT.x * 100).toFixed(2)) + "%", 40, 820);
     ctx.fillStyle = "#ff2923";
-    ctx.fillText("Democracy: " + ((lT.z * 100).toFixed(2)) + "%", 40, 860);
+    ctx.fillText("Democracy: " + ((lT.y * 100).toFixed(2)) + "%", 40, 860);
     ctx.fillStyle = "#4f2578";
-    ctx.fillText("Hierarchy: " + ((lT.y * 100).toFixed(2)) + "%", 40, 900);
+    ctx.fillText("Hierarchy: " + ((lT.z * 100).toFixed(2)) + "%", 40, 900);
     ctx.textAlign = "right";
     ctx.fillStyle = "#22546a";
-    ctx.fillText("Property: " + ((rT.z * 100).toFixed(2)) + "%", 760, 820);
+    ctx.fillText("Property: " + ((rT.x * 100).toFixed(2)) + "%", 760, 820);
     ctx.fillStyle = "#ff6400";
     ctx.fillText("Horizontality: " + ((rT.y * 100).toFixed(2)) + "%", 760, 860);
     ctx.fillStyle = "#c10061";
-    ctx.fillText("Command: " + ((rT.x * 100).toFixed(2)) + "%", 760, 900);
+    ctx.fillText("Command: " + ((rT.z * 100).toFixed(2)) + "%", 760, 900);
 }
-leftTr = cTriang({ x: gqv("auto"), y: gqv("hier"), z: gqv("demo") });
-rightTr = cTriang({ x: gqv("comm"), y: gqv("hori"), z: gqv("prop") });
+leftTr = cTriang({ x: gqv("auto"), y: gqv("demo"), z: gqv("hier") });
+rightTr = cTriang({ x: gqv("prop"), y: gqv("hori"), z: gqv("comm") });
 window.onload = function () {
     drawCanvas(leftTr, rightTr);
 };
