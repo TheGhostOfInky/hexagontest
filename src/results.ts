@@ -3,10 +3,16 @@ const canvas =<HTMLCanvasElement> document.getElementById("results")
 const ctx = canvas.getContext("2d")
 var leftTr: triangle
 var rightTr: triangle
-var hexagon_img = new Image()
-hexagon_img.src = "assets/hexagon.svg"
+var hexagon_img = <HTMLImageElement> new Image()
+var dark: boolean
+if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
+    dark = true
+    hexagon_img.src = "assets/hexagon_white.svg"
+} else {
+    hexagon_img.src = "assets/hexagon.svg"
+}
 
-function gqv(variable:string){
+function gqv(variable:string): number{
     let query: string = window.location.search.substring(1)
     let vars: Array<string> = query.split("&")
     for (let i: number = 0; i<vars.length ; i++) {
@@ -18,7 +24,7 @@ function gqv(variable:string){
     return(NaN);
 }
 
-function cTriang(input:triangle){
+function calcTriang(input:triangle): triangle{
     let sum: number = input.x + input.y + input.z
     if(sum == 0) {
         return {x: 1/3, y: 1/3, z: 1/3}
@@ -28,10 +34,12 @@ function cTriang(input:triangle){
 }
 
 function drawCanvas(lT:triangle,rT:triangle){
-    ctx.fillStyle = "#eee"
+    if(dark){
+        ctx.fillStyle = "#111"
+    } else {
+        ctx.fillStyle = "#eee" 
+    }
     ctx.fillRect(0,0,800,940)
-    let hexagon_img = new Image()
-    hexagon_img.src = "assets/hexagon.svg"
     ctx.drawImage(hexagon_img,0,0)
 
     let x1: number = lT.y //demo
@@ -48,7 +56,11 @@ function drawCanvas(lT:triangle,rT:triangle){
     let Y: number = (Y1 + Y2) / 2
   
     ctx.beginPath()
-    ctx.fillStyle = "#000"
+    if(dark){
+        ctx.fillStyle = "#FFF"
+    } else {
+        ctx.fillStyle = "#000"
+    }
     ctx.arc(X, Y, 10, 0, 2 * Math.PI)
     ctx.fill()
 
@@ -76,8 +88,8 @@ function drawCanvas(lT:triangle,rT:triangle){
      
 }
 
-leftTr  = cTriang({x: gqv("auto"), y: gqv("demo"), z: gqv("hier")})
-rightTr = cTriang({x: gqv("prop"), y: gqv("hori"), z: gqv("comm")})
+leftTr  = calcTriang({x: gqv("auto"), y: gqv("demo"), z: gqv("hier")})
+rightTr = calcTriang({x: gqv("prop"), y: gqv("hori"), z: gqv("comm")})
 
 window.onload = function(){
     drawCanvas(leftTr,rightTr)

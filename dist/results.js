@@ -3,7 +3,14 @@ const ctx = canvas.getContext("2d");
 var leftTr;
 var rightTr;
 var hexagon_img = new Image();
-hexagon_img.src = "assets/hexagon.svg";
+var dark;
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    dark = true;
+    hexagon_img.src = "assets/hexagon_white.svg";
+}
+else {
+    hexagon_img.src = "assets/hexagon.svg";
+}
 function gqv(variable) {
     let query = window.location.search.substring(1);
     let vars = query.split("&");
@@ -15,7 +22,7 @@ function gqv(variable) {
     }
     return (NaN);
 }
-function cTriang(input) {
+function calcTriang(input) {
     let sum = input.x + input.y + input.z;
     if (sum == 0) {
         return { x: 1 / 3, y: 1 / 3, z: 1 / 3 };
@@ -25,10 +32,13 @@ function cTriang(input) {
     }
 }
 function drawCanvas(lT, rT) {
-    ctx.fillStyle = "#eee";
+    if (dark) {
+        ctx.fillStyle = "#111";
+    }
+    else {
+        ctx.fillStyle = "#eee";
+    }
     ctx.fillRect(0, 0, 800, 940);
-    let hexagon_img = new Image();
-    hexagon_img.src = "assets/hexagon.svg";
     ctx.drawImage(hexagon_img, 0, 0);
     let x1 = lT.y; //demo
     let y1 = lT.x - lT.z; //auto - hier
@@ -41,7 +51,12 @@ function drawCanvas(lT, rT) {
     let X = (X1 + X2) / 2;
     let Y = (Y1 + Y2) / 2;
     ctx.beginPath();
-    ctx.fillStyle = "#000";
+    if (dark) {
+        ctx.fillStyle = "#FFF";
+    }
+    else {
+        ctx.fillStyle = "#000";
+    }
     ctx.arc(X, Y, 10, 0, 2 * Math.PI);
     ctx.fill();
     ctx.beginPath();
@@ -64,8 +79,8 @@ function drawCanvas(lT, rT) {
     ctx.fillStyle = "#c10061";
     ctx.fillText("Command: " + ((rT.z * 100).toFixed(2)) + "%", 760, 900);
 }
-leftTr = cTriang({ x: gqv("auto"), y: gqv("demo"), z: gqv("hier") });
-rightTr = cTriang({ x: gqv("prop"), y: gqv("hori"), z: gqv("comm") });
+leftTr = calcTriang({ x: gqv("auto"), y: gqv("demo"), z: gqv("hier") });
+rightTr = calcTriang({ x: gqv("prop"), y: gqv("hori"), z: gqv("comm") });
 window.onload = function () {
     drawCanvas(leftTr, rightTr);
 };

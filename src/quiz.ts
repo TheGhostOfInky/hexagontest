@@ -26,7 +26,7 @@ function answer(val: number){
     }
 }
 
-function calc(val: string){
+function calc(val: string): number{
     return ( (max_score[val] + user_score[val]) / (2 * max_score[val]))
 }
 
