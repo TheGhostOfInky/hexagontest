@@ -77,7 +77,7 @@ function drawCanvas(lT:triangle,rT:triangle){
 }
 
 leftTr  = cTriang({x: gqv("auto"), y: gqv("demo"), z: gqv("hier")})
-rightTr = cTriang({x: gqv("prop"), y: gqv("hori"), z: gqv("comm"),})
+rightTr = cTriang({x: gqv("prop"), y: gqv("hori"), z: gqv("comm")})
 
 window.onload = function(){
     drawCanvas(leftTr,rightTr)

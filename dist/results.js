@@ -1,14 +1,14 @@
-var canvas = document.getElementById("results");
-var ctx = canvas.getContext("2d");
+const canvas = document.getElementById("results");
+const ctx = canvas.getContext("2d");
 var leftTr;
 var rightTr;
 var hexagon_img = new Image();
 hexagon_img.src = "assets/hexagon.svg";
 function gqv(variable) {
-    var query = window.location.search.substring(1);
-    var vars = query.split("&");
-    for (var i = 0; i < vars.length; i++) {
-        var pair = vars[i].split("=");
+    let query = window.location.search.substring(1);
+    let vars = query.split("&");
+    for (let i = 0; i < vars.length; i++) {
+        let pair = vars[i].split("=");
         if (pair[0] == variable) {
             return parseFloat(pair[1]);
         }
@@ -16,7 +16,7 @@ function gqv(variable) {
     return (NaN);
 }
 function cTriang(input) {
-    var sum = input.x + input.y + input.z;
+    let sum = input.x + input.y + input.z;
     if (sum == 0) {
         return { x: 1 / 3, y: 1 / 3, z: 1 / 3 };
     }
@@ -27,19 +27,19 @@ function cTriang(input) {
 function drawCanvas(lT, rT) {
     ctx.fillStyle = "#eee";
     ctx.fillRect(0, 0, 800, 940);
-    var hexagon_img = new Image();
+    let hexagon_img = new Image();
     hexagon_img.src = "assets/hexagon.svg";
     ctx.drawImage(hexagon_img, 0, 0);
-    var x1 = lT.y; //demo
-    var y1 = lT.x - lT.z; //auto - hier
-    var x2 = rT.x; //prop
-    var y2 = rT.y - rT.z; //hori - comm
-    var X1 = 553.768 - (x1 * 465.524);
-    var Y1 = 395.860 + (y1 * 268.772);
-    var X2 = 243.424 + (x2 * 465.524);
-    var Y2 = 395.860 + (y2 * 268.772);
-    var X = (X1 + X2) / 2;
-    var Y = (Y1 + Y2) / 2;
+    let x1 = lT.y; //demo
+    let y1 = lT.x - lT.z; //auto - hier
+    let x2 = rT.x; //prop
+    let y2 = rT.y - rT.z; //hori - comm
+    let X1 = 553.768 - (x1 * 465.524);
+    let Y1 = 395.860 + (y1 * 268.772);
+    let X2 = 243.424 + (x2 * 465.524);
+    let Y2 = 395.860 + (y2 * 268.772);
+    let X = (X1 + X2) / 2;
+    let Y = (Y1 + Y2) / 2;
     ctx.beginPath();
     ctx.fillStyle = "#000";
     ctx.arc(X, Y, 10, 0, 2 * Math.PI);
